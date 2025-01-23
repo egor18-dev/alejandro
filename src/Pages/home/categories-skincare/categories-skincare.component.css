@@ -1,0 +1,79 @@
+/*-----------------------------------*\
+  #COLLECTION SECTION CSS
+\*-----------------------------------*/
+
+.collection {
+  padding-block-start: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.collection-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 70px; /* Increased gap */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center; /* Center items horizontally */
+}
+
+.collection-card {
+  position: relative;
+  min-height: 450px;
+  min-width: 350px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.collection-card .card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: hsl(0, 0%, 0%);
+  margin-block-end: 12px;
+}
+
+.collection-card .card-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: hsl(0, 0%, 20%);
+  margin-block-end: auto;
+}
+
+.collection-card .btn-link {
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 600;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.has-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  z-index: -1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-card:hover .has-bg-image {
+  transform: scale(1.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}

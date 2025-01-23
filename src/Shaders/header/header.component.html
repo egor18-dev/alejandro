@@ -1,0 +1,108 @@
+<header class="amazon-header">
+  <div class="top-header">
+    <div class="logo-container">
+      <a href="/">
+        <img src="https://legalexcorp.wordpress.com/wp-content/uploads/2025/01/amazontlogo.png?w=1024" alt="Amazon" class="amazon-logo">
+      </a>
+    </div>
+
+    <div class="delivery-location">
+      <div class="location-icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="location-text">
+        <span class="deliver-to">Entregar a Lleida 25002</span>
+        <span class="location">{{ location.city }} {{ location.postalCode }}</span>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <div class="category-dropdown">
+        <select [(ngModel)]="selectedCategory">
+          <option *ngFor="let category of categories">{{ category }}</option>
+        </select>
+      </div>
+      <input type="text" class="search-input" [(ngModel)]="searchQuery" [placeholder]="getSearchPlaceholder()">
+      <button class="clear-button" *ngIf="searchQuery" (click)="clearSearch()">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <button class="language-selector" (click)="toggleLanguage()">
+      <img [src]="currentLanguage === 'en' ? 'https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/us.svg' : 'https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/es.svg'"
+           [alt]="currentLanguage === 'en' ? 'English' : 'Español'"
+           class="flag-icon">
+    </button>
+
+    <button class="theme-toggle" (click)="toggleTheme()">
+      <i [class]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+    </button>
+
+    <nav class="nav-tools">
+      <div class="nav-item account-dropdown"
+           (mouseenter)="toggleAccountDropdown()"
+           (mouseleave)="toggleAccountDropdown()">
+        <span class="nav-line-1">Hola, Identifícate</span>
+        <span class="nav-line-2">Cuenta & Listas</span>
+        <div class="dropdown-content" [class.show]="isAccountDropdownOpen">
+          <div class="dropdown-section">
+            <h3>MI CUENTA</h3>
+            <ul>
+              <li><a href="#">Mi cuenta</a></li>
+              <li><a href="#">Mis pedidos</a></li>
+              <li><a href="#">Mi Lista de deseos</a></li>
+              <li><a href="#">Tu cuenta de vendedor</a></li>
+              <li><a href="#">Mis recomendaciones</a></li>
+              <li><a href="#">Mis mascotas</a></li>
+              <li><a href="#">Pertenencia a programas y suscripciones</a></li>
+              <li><a href="#">Mi suscripción a Amazon Prime</a></li>
+              <li><a href="#">Mis suscripciones a productos</a></li>
+              <li><a href="#">Gestionar contenido y dispositivos</a></li>
+              <li><a href="#">Mi Kindle Unlimited</a></li>
+              <li><a href="#">Mi Biblioteca musical</a></li>
+              <li><a href="#">Mi Prime Video</a></li>
+              <li><a href="#">Tu Amazon Photos</a></li>
+              <li><a href="#">Mis Apps y dispositivos</a></li>
+              <li><a href="#">Crea una cuenta Business gratis</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <span class="nav-line-1">Devoluciones</span>
+        <span class="nav-line-2">y Pedidos</span>
+      </div>
+
+      <div class="nav-item cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">3</span>
+        <!--<span class="nav-line-2">Cesta</span>-->
+      </div>
+    </nav>
+  </div>
+
+  <div class="bottom-header">
+    <div class="all-departments" (click)="toggleDepartments()">
+      <i class="fas fa-bars"></i>
+      <span>Todos</span>
+      <div class="dropdown-content" [class.show]="isDepartmentsOpen">
+        <ul>
+          <li *ngFor="let category of categories">
+            <a href="#">{{ category }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <nav class="departments-nav">
+      <ul>
+        <li *ngFor="let dept of departments">
+          <a href="#">{{ dept.label }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

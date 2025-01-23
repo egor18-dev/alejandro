@@ -1,0 +1,9 @@
+<div class="slider">
+    <div class="slides" [style.transform]="transform">
+      <div class="slide" *ngFor="let image of images">
+        <img [src]="image" alt="Slider Image">
+      </div>
+    </div>
+    <button class="nav-arrow left-arrow" (click)="prevSlide()">&#10094;</button>
+    <button class="nav-arrow right-arrow" (click)="nextSlide()">&#10095;</button>
+  </div>

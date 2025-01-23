@@ -1,0 +1,455 @@
+$primary-dark: #131921;
+$secondary-dark: #232f3e;
+$amazon-orange: #ff9900;
+$white: #ffffff;
+$light-gray: #f3f3f3;
+$search-button-bg: rgb(254, 189, 105);
+
+.amazon-header {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  
+  .top-header {
+    background-color: $primary-dark;
+    color: $white;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .logo-container {
+      padding: 0.5rem;
+      
+      .amazon-logo {
+        height: 2rem;
+        object-fit: contain;
+      }
+      
+      &:hover {
+        outline: none; // Eliminar el estilo de hover
+      }
+    }
+    
+    .delivery-location {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      cursor: pointer;
+      
+      &:hover {
+        outline: none; // Eliminar el estilo de hover
+      }
+      
+      .location-icon {
+        margin-right: 0.5rem;
+      }
+      
+      .location-text {
+        display: flex;
+        flex-direction: column;
+        
+        .deliver-to {
+          font-size: 0.7rem;
+          color: #ccc;
+        }
+        
+        .location {
+          font-weight: bold;
+        }
+      }
+    }
+    
+    .search-container {
+      flex: 1.2; // Hacer la barra de búsqueda un 15% más larga
+      display: flex;
+      height: 2.5rem;
+      background-color: $light-gray; // Ajustar el fondo
+      border-radius: 9px; // Agregar borde redondeado
+      
+      .category-dropdown {
+        background-color: #e3e3e3; // Fondo de color gris
+        color: #696969; // Letra un poco gris fuerte
+        border-radius: 6px 0 0 6px; // Ajustar borde redondeado
+        padding: 0 0.5rem;
+        
+        select {
+          height: 100%;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          color: inherit; // Heredar el color del contenedor
+          
+          &:hover {
+            background-color: transparent; // Remove hover effect
+          }
+        }
+      }
+      
+      .search-input {
+        flex: 1;
+        padding: 0.5rem;
+        border: none;
+        background-color: $light-gray; // Ajustar el fondo
+        border-radius: 0; // Ajustar borde redondeado
+        
+        &:focus {
+          outline: none;
+          box-shadow: none; // Eliminar el estilo de hover
+        }
+
+        &::placeholder {
+          font-size: 0.9rem; // Tamaño de la letra del placeholder
+        }
+
+        &:not(:placeholder-shown) {
+          font-size: 0.9rem; // Tamaño de la letra cuando se ingrese texto
+        }
+      }
+
+      .language-selector {
+        display: none; // Ocultar el botón dentro de la barra de búsqueda
+      }
+      
+      .clear-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000; // Cambiar el color a negro
+        
+        &:hover {
+          color: darken(#000, 10%);
+        }
+        
+        i {
+          font-size: 1rem;
+        }
+      }
+      
+      .search-button {
+        width: 3rem;
+        background-color: $search-button-bg; // Cambiar el color de fondo
+        border: none;
+        border-radius: 0 10px 10px 0; // Ajustar borde redondeado
+        cursor: pointer;
+        
+        &:hover {
+          background-color: $search-button-bg; // Mantener el color original
+        }
+
+        i {
+          font-size: 1.3rem; // Increase the size by 30%
+          color: darken(#414040, 10%);
+        }
+      }
+    }
+    
+    .language-selector {
+      width: auto;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:hover {
+        background-color: transparent; // Mantener el fondo transparente
+      }
+      
+      .flag-icon {
+        width: 2rem; // Aumentar el tamaño de la bandera
+        height: auto;
+      }
+    }
+
+    .theme-toggle {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      width: 2.5rem; // Fixed width to prevent movement IMPORTANTE PARA QUE AL CAMBIAR DE TEMA NO SE MUEVA LA BARRA DE BUSQUEDA
+      
+      &:hover {
+        background-color: transparent;
+      }
+      
+      i {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      
+      .nav-item {
+        padding: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        
+        &:hover {
+          outline: none; // Eliminar el estilo de hover
+        }
+        
+        .nav-line-1 {
+          font-size: 0.7rem;
+          color: #ffffff;
+          font-weight: 650; // Semi bold
+        }
+        
+        .nav-line-2 {
+          font-weight: bold;
+        }
+      }
+      
+      .account-dropdown {
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background-color: $white;
+          min-width: 200px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          z-index: 1000;
+          color: #333;
+          padding: 1rem;
+          
+          &.show {
+            display: block;
+          }
+          
+          h3 {
+            margin: 0 0 0.5rem;
+          }
+          
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+              padding: 0.25rem 0;
+              
+              a {
+                color: #333;
+                text-decoration: none;
+                
+                &:hover {
+                  color: $amazon-orange;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      .cart {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+
+        .cart-icon {
+          width: 8rem; // Ajustar el tamaño del logo del carrito
+          height: auto;
+        }
+
+        i {
+          font-size: 2.2rem; // Hacer el logo del carrito más grande
+        }
+
+        .cart-count {
+          position: absolute;
+          top: 37%;
+          left: 55%;
+          transform: translate(-50%, -50%);
+          color: $amazon-orange; // Cambiar el color del número a amarillo
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+
+        .nav-line-2 {
+          font-size: 0.8rem; // Hacer la palabra "Cesta" más pequeña
+          position: absolute;
+          bottom: -0.5rem;
+          right: -0.5rem;
+        }
+      }
+    }
+  }
+  
+  .bottom-header {
+    background-color: $secondary-dark;
+    color: $white;
+    padding: 0.25rem 1rem; // Reducir la altura de la barra inferior
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .all-departments {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: relative; // Necesario para ajustar el desplegable
+      
+      &:hover {
+        outline: none; // Eliminar el estilo de hover
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 110%; // Asegurar que el desplegable esté pegado al rectángulo de departamentos
+        left: -20%;
+        background-color: $white;
+        min-width: 215px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        z-index: 1000;
+        padding: 1rem;
+        
+        &.show {
+          display: block;
+        }
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            padding: 0.25rem 0;
+            
+            a {
+              color: #333;
+              text-decoration: none;
+              
+              &:hover {
+                color: $amazon-orange;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .departments-nav {
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 1.5rem;
+        
+        li {
+          a {
+            color: $white;
+            text-decoration: none;
+            position: relative; // Necesario para el subrayado
+            transition: font-weight 0.2s; // Añadir transición para suavizar el cambio
+            
+            &:hover {
+              font-weight: bold; // Poner la palabra en negrita al pasar el ratón por encima
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 2px;
+              display: block;
+              margin-top: 5px;
+              right: 0;
+              background: $amazon-orange;
+              transition: width 0.4s ease;
+            }
+
+            &:hover::after {
+              width: 100%; // Subrayado completo al pasar el ratón por encima
+              left: 0;
+              background: $amazon-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.departments-nav ul li a {
+  display: inline-block;
+  width: 100%; // Asegurar que el ancho sea constante
+  text-align: center; // Centrar el texto
+  position: relative; // Necesario para el subrayado
+  transition: font-weight 0.2s; // Añadir transición para suavizar el cambio
+}
+
+.departments-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: $amazon-orange;
+  transition: width 0.4s ease;
+}
+
+.departments-nav ul li a:hover::after {
+  width: 100%; // Subrayado completo al pasar el ratón por encima
+  left: 0;
+  background: $amazon-orange;
+}
+
+.departments-nav ul li a:hover {
+  font-weight: bold; // Poner la palabra en negrita al pasar el ratón por encima
+}
+
+@media (max-width: 1024px) {
+  .amazon-header {
+    .nav-tools {
+      .nav-line-1 {
+        display: none;
+      }
+    }
+    
+    .departments-nav {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .amazon-header {
+    .top-header {
+      flex-wrap: wrap;
+      
+      .search-container {
+        order: 3;
+        width: 10%;
+        margin-top: 0.5rem;
+      }
+    }
+    
+    .delivery-location {
+      display: none;
+    }
+  }
+}
