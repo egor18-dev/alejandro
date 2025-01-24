@@ -2,8 +2,31 @@
     <div class="slides" [style.transform]="transform">
       <div class="slide" *ngFor="let image of images">
         <img [src]="image" alt="Slider Image">
-      </div>
+        
+      </div>      
     </div>
     <button class="nav-arrow left-arrow" (click)="prevSlide()">&#10094;</button>
     <button class="nav-arrow right-arrow" (click)="nextSlide()">&#10095;</button>
-  </div>
+
+    <div class="header-box box-row">
+      <div class="box-col">
+          <h3>Free international returns</h3>
+          <img src="/assets/images/box1-1.jpg" alt="ss">
+          <a href="/">Shop More</a>
+      </div>
+      <div class="box-col">
+          <h3>Lunar New Year</h3>
+          <img src="/assets/images/box1-2.jpg" alt="ss">
+          <a href="/">Shop More</a>
+      </div>
+      <div class="box-col">
+          <h3>Toy under $25</h3>
+          <img src="/assets/images/box1-3.jpg" alt="">
+          <a href="/">Shop More</a>
+      </div>
+      <div class="box-col">
+          <h3>Deals in PCs</h3>
+          <img src="/assets/images/box1-4.jpg" alt="">
+          <a href="/">Shop More</a>
+      </div>
+</div>
